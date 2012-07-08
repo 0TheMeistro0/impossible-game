@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Player.png</Source>
+      <Name>Player</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Player.xnb</Output>
+      <Time>2012-07-08T19:47:02.5205696+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Cube.png</Source>
+      <Name>Cube</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Cube.xnb</Output>
+      <Time>2012-07-07T19:01:43.4414721+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Triangle.png</Source>
+      <Name>Triangle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Triangle.xnb</Output>
+      <Time>2012-07-08T19:49:29.0359498+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Water.png</Source>
+      <Name>Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Water.xnb</Output>
+      <Time>2012-07-08T19:50:02.4648618+03:00</Time>
+    </Item>
+    <Item>
+      <Source>Line.png</Source>
+      <Name>Line</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Line.xnb</Output>
+      <Time>2012-07-08T20:04:48.2795275+03:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{A2B8B68F-8ABC-467B-969E-072BFBA9D079}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+03:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2012-05-06T17:55:10.57035+03:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

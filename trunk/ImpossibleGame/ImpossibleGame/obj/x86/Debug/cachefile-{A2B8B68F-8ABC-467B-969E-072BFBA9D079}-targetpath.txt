@@ -1,0 +1,5 @@
+Content\Player.xnb
+Content\Cube.xnb
+Content\Triangle.xnb
+Content\Water.xnb
+Content\Line.xnb
