@@ -16,19 +16,19 @@ namespace ImpossibleGame
     /// </summary>
     public class ImpossibleGame : Microsoft.Xna.Framework.Game
     {
-        private GraphicsDeviceManager _graphics;
+        private readonly GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
         private IPlayer _player;
 
-        private const int _speed = 5;
+        private const int Speed = 5;
         private const int LeftBound = 100;
         private const int RightBound = 500;
 
         private readonly Color _color = new Color(41, 121, 130);
         private bool _gameStarted = false;
 
-        private IEnemy Enemy1, Enemy2, Enemy3;
+        private IEnemy Enemy1, Enemy2, Enemy3, Enemy4;
 
         public ImpossibleGame()
         {
@@ -52,11 +52,11 @@ namespace ImpossibleGame
 
             var texture = Content.Load<Texture2D>("Player");
             _player = new Player(this, ref texture, new Vector2(200, 300),
-                new Vector2(texture.Width, texture.Height), _speed);
+                new Vector2(texture.Width, texture.Height));
 
             var container = new IoCContainer();
             container.Player = _player;
-
+            
             IoC.Container = container;
 
             texture = Content.Load<Texture2D>("Water");
@@ -67,11 +67,15 @@ namespace ImpossibleGame
             texture = Content.Load<Texture2D>("Triangle");
             Enemy3 = new Triangle(this, ref texture,
                 new Vector2(1200, 300), new Vector2(20, 20), bounds);
+            texture = Content.Load<Texture2D>("Cube");
+            Enemy4 = new Cube(this, ref texture,
+                new Vector2(1400, 300), new Vector2(20, 20), bounds);
 
             Components.Add(IoC.Container.Player);
             Components.Add(Enemy1);
             Components.Add(Enemy2);
             Components.Add(Enemy3);
+            Components.Add(Enemy4);
 
             base.Initialize();
         }
@@ -103,13 +107,16 @@ namespace ImpossibleGame
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
-        /// checking for collisions, gathering input, and playing audio.
         {
+
+            // Checking for collisions, gathering input, and playing audio.
             // Allows the game to exit
             if (Keyboard.GetState().GetPressedKeys().Contains(Keys.Escape)
                 || Enemy1.Collision(IoC.Container.Player)
                 || Enemy2.Collision(IoC.Container.Player)
-                || Enemy3.Collision(IoC.Container.Player))
+                || Enemy3.Collision(IoC.Container.Player)
+                //|| Enemy4.Collision(IoC.Container.Player)
+                )             
             {
                 this.Exit();
             }
@@ -126,19 +133,25 @@ namespace ImpossibleGame
             {
                 Enemy3.Position = new Vector2(1000, Enemy3.Position.Y);
             }
-            
+            if (Enemy4.Position.X <= 0)
+            {
+                Enemy4.Position = new Vector2(1000, Enemy4.Position.Y);
+            }
                         
             if (gameTime.TotalGameTime.Milliseconds % 1 == 0)
             {
                 Enemy1.Position = new Vector2(
-                    Enemy1.Position.X - _speed,
+                    Enemy1.Position.X - Speed,
                     Enemy1.Position.Y);
                 Enemy2.Position = new Vector2(
-                    Enemy2.Position.X - _speed,
+                    Enemy2.Position.X - Speed,
                     Enemy2.Position.Y);
                 Enemy3.Position = new Vector2(
-                    Enemy3.Position.X - _speed,
+                    Enemy3.Position.X - Speed,
                     Enemy3.Position.Y);
+                Enemy4.Position = new Vector2(
+                    Enemy4.Position.X - Speed,
+                    Enemy4.Position.Y);
             }
 
             // TODO: Add your update logic here
@@ -152,7 +165,7 @@ namespace ImpossibleGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(new Color(41, 121, 130));
+            GraphicsDevice.Clear(_color);
 
             // TODO: Add your drawing code here
             

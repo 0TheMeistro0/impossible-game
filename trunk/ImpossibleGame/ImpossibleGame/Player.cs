@@ -28,16 +28,25 @@ namespace ImpossibleGame
         private const int MilisecondsToChangeJumpState = 50;
 
         private Game _game;
-        private JumpState _jumpState = JumpState.NotJumped;
         private int _milisecondsPassed = 0;
         private double _miliseconds = 0;
         private int _jumpStatesCounter = 0;
         private bool _finishedJumping = false;
 
+        /// <summary>
+        /// Current angle of player (when jumping)
+        /// </summary>
         public float Angle { get; private set; }
 
-        public Player(Game game, ref Texture2D texture, Vector2 position, Vector2 size, int speed)
-            : base(game, ref texture, position, size, speed)
+        /// <summary>
+        /// Create new instance of Player
+        /// </summary>
+        /// <param name="game">Current game</param>
+        /// <param name="texture">Player image</param>
+        /// <param name="position">Start position</param>
+        /// <param name="size">Player's size</param>
+        public Player(Game game, ref Texture2D texture, Vector2 position, Vector2 size)
+            : base(game, ref texture, position, size)
         {
             _game = game;
             Angle = 0;
@@ -48,36 +57,33 @@ namespace ImpossibleGame
             base.Initialize();
         }
 
-        private void ChangeAngle()
-        {
-        }
 
         public override void Update(GameTime gameTime)
         {
             _milisecondsPassed = (int)(gameTime.TotalGameTime.TotalMilliseconds - _miliseconds);
 
-            if (_jumpState != JumpState.NotJumped
+            if (StateJumpState != JumpState.NotJumped
                 && _milisecondsPassed > MilisecondsToChangeJumpState)
             {
                 if (_jumpStatesCounter < 4 && !_finishedJumping && Angle == 0
-                    && _jumpState == JumpState.InProgressGrow)
+                    && StateJumpState == JumpState.InProgressGrow)
                 {
                     Position = new Vector2(Position.X, Position.Y - JumpPixels);
                     _jumpStatesCounter++;
-                    _jumpState = JumpState.InProgressGrow;
+                    StateJumpState = JumpState.InProgressGrow;
                 }
 
                 else if (Angle >= -45 && !_finishedJumping
-                    && _jumpState == JumpState.InProgressGrow)
+                    && StateJumpState == JumpState.InProgressGrow)
                 {
                     Position = new Vector2(Position.X, Position.Y - JumpPixels);
                     _jumpStatesCounter = 0;
                     Angle += RotationAngle;
-                    if (Angle == -45) _jumpState = JumpState.InProgressLoose;
+                    if (Angle == -45) StateJumpState = JumpState.InProgressLoose;
                 }
 
                 else if (_jumpStatesCounter < 3 && !_finishedJumping && Angle == -90
-                    && _jumpState == JumpState.InProgressLoose)
+                    && StateJumpState == JumpState.InProgressLoose)
                 {
                     _finishedJumping = true;
                     Position = new Vector2(Position.X, Position.Y + JumpPixels);
@@ -86,7 +92,7 @@ namespace ImpossibleGame
 
 
                 else if (Angle >= -90 && !_finishedJumping
-                    && _jumpState == JumpState.InProgressLoose)
+                    && StateJumpState == JumpState.InProgressLoose)
                 {
                     Position = new Vector2(Position.X, Position.Y + JumpPixels);
                     _jumpStatesCounter = 0;
@@ -101,7 +107,7 @@ namespace ImpossibleGame
 
                 if (_jumpStatesCounter == 3 && _finishedJumping)
                 {
-                    _jumpState = JumpState.NotJumped;
+                    StateJumpState = JumpState.NotJumped;
                     //Position = new Vector2(Position.X, Position.Y + JumpPixels);
                     _jumpStatesCounter = 0;
                 }
@@ -110,9 +116,9 @@ namespace ImpossibleGame
             }
 
             if (Keyboard.GetState().IsKeyDown(Keys.Space)
-                && _jumpState == JumpState.NotJumped)
+                && StateJumpState == JumpState.NotJumped)
             {
-                _jumpState = JumpState.InProgressGrow;
+                StateJumpState = JumpState.InProgressGrow;
                 _miliseconds = gameTime.TotalGameTime.TotalMilliseconds;
                 _finishedJumping = false;
             }

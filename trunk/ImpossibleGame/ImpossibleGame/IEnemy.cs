@@ -30,6 +30,15 @@ namespace ImpossibleGame
 
         public Vector2 Bounds { get; private set; }
 
+
+        /// <summary>
+        /// Creates the new instance of IEnemy
+        /// </summary>
+        /// <param name="game">Current game</param>
+        /// <param name="texture">Image of enemy</param>
+        /// <param name="position">Start position of enemy</param>
+        /// <param name="size">Size of enemy</param>
+        /// <param name="bounds">Left and right bounds, in which enemy will be drawn</param>
         protected IEnemy(Game game, ref Texture2D texture, Vector2 position, 
             Vector2 size, Vector2 bounds) : base(game)
         {

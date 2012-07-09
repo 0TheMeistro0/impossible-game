@@ -9,6 +9,14 @@ namespace ImpossibleGame
 {
     public class Water : IEnemy
     {
+        /// <summary>
+        /// Creates the new instance of WaterEnemy
+        /// </summary>
+        /// <param name="game">Current game</param>
+        /// <param name="texture">Image of enemy</param>
+        /// <param name="position">Start position of enemy</param>
+        /// <param name="size">Size of enemy</param>
+        /// <param name="bounds">Left and right bounds, in which enemy will be drawn</param>
         public Water(Game game, ref Texture2D texture, Vector2 position, Vector2 size, Vector2 bounds)
             : base(game, ref texture, position, size, bounds)
         {

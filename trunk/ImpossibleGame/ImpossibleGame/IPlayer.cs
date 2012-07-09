@@ -29,11 +29,6 @@ namespace ImpossibleGame
         public Vector2 Size { get; set; }
 
         /// <summary>
-        /// Here contains speed of player (pixels in second)
-        /// </summary>
-        public int Speed { get; set; }
-
-        /// <summary>
         /// Gets rectangle where player is located
         /// </summary>
         public Rectangle PlayerRectangle
@@ -44,14 +39,22 @@ namespace ImpossibleGame
                 (int)(Size.X), (int)(Size.Y));
             }
         }
+        
+        public JumpState StateJumpState = JumpState.NotJumped;
 
-        protected IPlayer(Game game, ref Texture2D texture, Vector2 position, Vector2 size, int speed)
+        /// <summary>
+        /// Create new instance of IPlayer
+        /// </summary>
+        /// <param name="game">Current game</param>
+        /// <param name="texture">Player image</param>
+        /// <param name="position">Start position</param>
+        /// <param name="size">Player's size</param>
+        protected IPlayer(Game game, ref Texture2D texture, Vector2 position, Vector2 size)
             : base(game)
         {
             Texture = texture;
             Position = position;
             Size = size;
-            Speed = speed;
         }
 
         public override void Initialize()

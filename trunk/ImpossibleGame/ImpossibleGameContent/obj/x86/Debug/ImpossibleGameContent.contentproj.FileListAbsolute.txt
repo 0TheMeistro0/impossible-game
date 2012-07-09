@@ -1,1 +1,2 @@
 c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGameContent\obj\x86\Debug\ResolveAssemblyReference.cache
