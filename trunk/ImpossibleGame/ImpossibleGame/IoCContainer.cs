@@ -14,5 +14,10 @@ namespace ImpossibleGame
         /// This is the player which currently is using
         /// </summary>
         public IPlayer Player { get; set; }
+
+        /// <summary>
+        /// Map, where player is currently posted
+        /// </summary>
+        public IMap Map { get; set; }
     }
 }

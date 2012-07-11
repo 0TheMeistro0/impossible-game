@@ -3,3 +3,4 @@ Content\Player.xnb
 Content\Triangle.xnb
 Content\Water.xnb
 Content\Line.xnb
+Content\SpriteFont1.xnb

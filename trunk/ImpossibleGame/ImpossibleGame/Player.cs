@@ -25,7 +25,7 @@ namespace ImpossibleGame
         private const float RotationAngle = (float)-22.5;
         private const int JumpPixels = 8;
         private const float RoundingDimension = MathHelper.Pi * 2;
-        private const int MilisecondsToChangeJumpState = 50;
+        private const int MilisecondsToChangeJumpState = 40;
 
         private Game _game;
         private int _milisecondsPassed = 0;

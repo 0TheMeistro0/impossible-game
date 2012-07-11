@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -22,13 +24,16 @@ namespace ImpossibleGame
         private IPlayer _player;
 
         private const int Speed = 5;
+        private const int Width = 800;
+        private const int Height = 600;
+        private const bool FullScreenMode = false;
         private const int LeftBound = 100;
-        private const int RightBound = 500;
+        private const int RightBound = Width - 100;
+        private double _seconds = 0;
+        private double _lastSeonds = 0;
 
         private readonly Color _color = new Color(41, 121, 130);
         private bool _gameStarted = false;
-
-        private IEnemy Enemy1, Enemy2, Enemy3, Enemy4;
 
         public ImpossibleGame()
         {
@@ -46,9 +51,7 @@ namespace ImpossibleGame
         {
             // TODO: Add your initialization logic here
 
-            InitGraphicsMode(600, 400, false);
-
-            var bounds = new Vector2(LeftBound, RightBound);
+            InitGraphicsMode(Width, Height, FullScreenMode);
 
             var texture = Content.Load<Texture2D>("Player");
             _player = new Player(this, ref texture, new Vector2(200, 300),
@@ -56,26 +59,12 @@ namespace ImpossibleGame
 
             var container = new IoCContainer();
             container.Player = _player;
-            
+
             IoC.Container = container;
 
-            texture = Content.Load<Texture2D>("Water");
-            Enemy1 = new Water(this, ref texture,
-                new Vector2(1000, 320), new Vector2(20, 20), bounds);
-            Enemy2 = new Water(this, ref texture,
-                new Vector2(1020, 320), new Vector2(20, 20), bounds);
-            texture = Content.Load<Texture2D>("Triangle");
-            Enemy3 = new Triangle(this, ref texture,
-                new Vector2(1200, 300), new Vector2(20, 20), bounds);
-            texture = Content.Load<Texture2D>("Cube");
-            Enemy4 = new Cube(this, ref texture,
-                new Vector2(1400, 300), new Vector2(20, 20), bounds);
+            Start();
 
             Components.Add(IoC.Container.Player);
-            Components.Add(Enemy1);
-            Components.Add(Enemy2);
-            Components.Add(Enemy3);
-            Components.Add(Enemy4);
 
             base.Initialize();
         }
@@ -111,48 +100,33 @@ namespace ImpossibleGame
 
             // Checking for collisions, gathering input, and playing audio.
             // Allows the game to exit
-            if (Keyboard.GetState().GetPressedKeys().Contains(Keys.Escape)
-                || Enemy1.Collision(IoC.Container.Player)
-                || Enemy2.Collision(IoC.Container.Player)
-                || Enemy3.Collision(IoC.Container.Player)
-                //|| Enemy4.Collision(IoC.Container.Player)
-                )             
+            if (Keyboard.GetState().GetPressedKeys().Contains(Keys.Escape))
             {
                 this.Exit();
             }
-            
-            if (Enemy1.Position.X <= 0) 
+
+            if (IoC.Container.Map.Colision(IoC.Container.Player))
             {
-                Enemy1.Position = new Vector2(1000, Enemy1.Position.Y);
+                Components.Clear();
+                Components.Add(IoC.Container.Player);
+                Thread.Sleep(2000);
+                Start(gameTime.TotalGameTime.TotalSeconds);
+                return;
             }
-            if (Enemy2.Position.X <= 0)
+
+            foreach (var enemy in IoC.Container.Map.Enemies.Where(enemy => enemy.Position.X <= 0))
             {
-                Enemy2.Position = new Vector2(1000, Enemy2.Position.Y);
+                enemy.Position = new Vector2(new Random().Next(700, 1000), enemy.Position.Y);
             }
-            if (Enemy3.Position.X <= 0)
-            {
-                Enemy3.Position = new Vector2(1000, Enemy3.Position.Y);
-            }
-            if (Enemy4.Position.X <= 0)
-            {
-                Enemy4.Position = new Vector2(1000, Enemy4.Position.Y);
-            }
-                        
+
             if (gameTime.TotalGameTime.Milliseconds % 1 == 0)
             {
-                Enemy1.Position = new Vector2(
-                    Enemy1.Position.X - Speed,
-                    Enemy1.Position.Y);
-                Enemy2.Position = new Vector2(
-                    Enemy2.Position.X - Speed,
-                    Enemy2.Position.Y);
-                Enemy3.Position = new Vector2(
-                    Enemy3.Position.X - Speed,
-                    Enemy3.Position.Y);
-                Enemy4.Position = new Vector2(
-                    Enemy4.Position.X - Speed,
-                    Enemy4.Position.Y);
+                IoC.Container.Map.ChangeXPosition(Speed);
             }
+
+            IoC.Container.Map.Regenerate();
+
+            _seconds = gameTime.TotalGameTime.TotalSeconds - _lastSeonds;
 
             // TODO: Add your update logic here
 
@@ -168,12 +142,36 @@ namespace ImpossibleGame
             GraphicsDevice.Clear(_color);
 
             // TODO: Add your drawing code here
-            
+
+            var courierNew = Content.Load<SpriteFont>("SpriteFont1");
+
+            string time = String.Format(CultureInfo.CurrentCulture, "{0:0.00}",  _seconds);
+
+            var fontOrigin = courierNew.MeasureString(time) / 2;
+            var fontPos = new Vector2(Width / 2, 50);
+
             _spriteBatch.Begin();
             _spriteBatch.Draw(Content.Load<Texture2D>("Line"),
-                 new Vector2(50, 310), null, Color.White);
+                 new Vector2(50, 310), new Rectangle(0, 0, RightBound, 2), Color.White);
+            // Draw the string
+            _spriteBatch.DrawString(courierNew, time, fontPos, Color.LightGreen, 0, fontOrigin, 1.0f, SpriteEffects.None, 0.5f);
             base.Draw(gameTime);
             _spriteBatch.End();
+        }
+
+        private void Start(double seconds = 0)
+        {
+            var bounds = new Vector2(LeftBound, RightBound);
+
+            IoC.Container.Map = new RandomMap(1000, this, new Vector2(LeftBound, RightBound));
+            
+            foreach (var enemies in IoC.Container.Map.Enemies)
+            {
+                Components.Add(enemies);
+            }
+
+            _seconds = 0;
+            _lastSeonds = seconds;
         }
 
         /// <summary>

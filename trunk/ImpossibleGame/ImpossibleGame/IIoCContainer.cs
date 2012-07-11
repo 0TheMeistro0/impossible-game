@@ -11,8 +11,13 @@ namespace ImpossibleGame
     public interface IIoCContainer
     {
         /// <summary>
-        /// This is the player which currently is using
+        /// Player which currently is using
         /// </summary>
         IPlayer Player { get; set; }
+        
+        /// <summary>
+        /// Map, where player is currently posted
+        /// </summary>
+        IMap Map { get; set; }
     }
 }

@@ -20,3 +20,8 @@ C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.exe
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.pdb
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\SpriteFont1.xnb
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.exe.manifest
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.application
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.exe.manifest
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.application
