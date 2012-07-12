@@ -119,21 +119,12 @@ namespace ImpossibleGame
         /// /// <param name="game">Current game</param> 
         private void Create(int countOjects, Game game, Vector2 bounds)
         {
-
             var texture = game.Content.Load<Texture2D>("Triangle");
-            IEnemy enemy = new Triangle(game, ref texture, new Vector2(1100, 300), new Vector2(20, 20), bounds);
+            IEnemy enemy = new Triangle(game, ref texture, new Vector2(700, 300), new Vector2(20, 20), bounds);
             Enemies.Add(enemy);
 
             texture = game.Content.Load<Texture2D>("Triangle");
-            enemy = new Triangle(game, ref texture, new Vector2(1120, 300), new Vector2(20, 20), bounds);
-            Enemies.Add(enemy);
-
-            texture = game.Content.Load<Texture2D>("Triangle");
-            enemy = new Triangle(game, ref texture, new Vector2(700, 300), new Vector2(20, 20), bounds);
-            Enemies.Add(enemy);
-
-            texture = game.Content.Load<Texture2D>("Triangle");
-            enemy = new Triangle(game, ref texture, new Vector2(500, 300), new Vector2(20, 20), bounds);
+            enemy = new Triangle(game, ref texture, new Vector2(720, 300), new Vector2(20, 20), bounds);
             Enemies.Add(enemy);
 
             texture = game.Content.Load<Texture2D>("Water");
@@ -143,73 +134,70 @@ namespace ImpossibleGame
             enemy = new Water(game, ref texture, new Vector2(920, 320), new Vector2(20, 20), bounds);
             Enemies.Add(enemy);
 
-            //for (int i = 1; i < countOjects; i++)
-            //{
-            //    var randomType = new Random(System.Environment.TickCount + i);
-            //    var randomPosition = new Random(System.Environment.TickCount - i);
-            //    var randomPositionDifference = new Random(System.Environment.TickCount + i*i);
-            //    var random = new Random(System.Environment.TickCount + i);
+            for (int i = 1; i < countOjects; i++)
+            {
+                var randomType = new Random(System.Environment.TickCount + i);
+                var randomPosition = new Random(System.Environment.TickCount - i);
+                var randomPositionDifference = new Random(System.Environment.TickCount + i * i);
+                var random = new Random(System.Environment.TickCount + i);
 
-            //    int positionStart = 0;
-            //    int positionEnd = 0;
-            //    int positionDifference = 0;
-            //    int positionBounds = 0;
-            //    int type = 0;
-            //    Vector2 position;
+                int positionStart = 0;
+                int positionEnd = 0;
+                int positionDifference = 0;
+                int positionBounds = 0;
+                int type = 0;
+                Vector2 position;
 
-            //    positionDifference = random.Next(1, 3);
-
-
-            //    switch (positionDifference)
-            //    {
-            //        case 1:
-
-            //            //if (Enemies[Enemies.Count - 1].Position.X - Enemies[Enemies.Count - 2].Position.X < 250)
-            //            //{
-            //            //    goto case 2;
-            //            //}
-
-            //            //positionStart = 20;
-            //            //positionEnd = 30;
-
-            //            //break;
-            //            goto case 2;
-
-            //        case 2:
-
-            //            positionStart = 400;
-            //            positionEnd = 550;
-
-            //            break;
-            //    }
-
-            //    positionBounds = random.Next(positionStart, positionEnd);
-
-            //    type = random.Next(1, 3);
-
-            //    switch (type)
-            //    {
-            //        case 1:
+                positionDifference = random.Next(1, 11);
 
 
-            //            position = new Vector2(Enemies.Last().Position.X + positionBounds, 300);
+                if (positionDifference <= 8)
+                {
+                    if (Enemies[Enemies.Count - 1].Position.X - Enemies[Enemies.Count - 2].Position.X < 100)
+                    {
+                        positionDifference = 9;
+                    }
 
-            //            texture = game.Content.Load<Texture2D>("Triangle");
-            //            enemy = new Triangle(game, ref texture, position, new Vector2(20, 20), bounds);
+                    positionStart = 20;
+                    positionEnd = 30;
+                }
 
-            //            break;
-            //        case 2:
+                if (positionDifference > 5)
+                {
+                    positionStart = 125;
+                    positionEnd = 200;
+                }
 
-            //            position = new Vector2(Enemies.Last().Position.X + positionBounds, 320);
+                positionBounds = random.Next(positionStart, positionEnd);
 
-            //            texture = game.Content.Load<Texture2D>("Water");
-            //            enemy = new Water(game, ref texture, position, new Vector2(20, 20), bounds);
+                type = random.Next(1, 11);
 
-            //            break;
-            //    }
+                if (type <= 5)
+                {
 
-            //    Enemies.Add(enemy);
-            //}
+
+                    position = new Vector2(Enemies.Last().Position.X + positionBounds, 300);
+
+                    texture = game.Content.Load<Texture2D>("Triangle");
+                    enemy = new Triangle(game, ref texture, position, new Vector2(20, 20), bounds);
+
+                }
+                else
+                {
+
+                    if (Enemies.Last() is Water)
+                    {
+                        positionBounds = 20;
+                    }
+
+                    position = new Vector2(Enemies.Last().Position.X + positionBounds, 320);
+
+                    texture = game.Content.Load<Texture2D>("Water");
+                    enemy = new Water(game, ref texture, position, new Vector2(20, 20), bounds);
+                }
+
+                Enemies.Add(enemy);
+            }
         }
     }
 }

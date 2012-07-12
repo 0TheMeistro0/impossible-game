@@ -114,17 +114,12 @@ namespace ImpossibleGame
                 return;
             }
 
-            foreach (var enemy in IoC.Container.Map.Enemies.Where(enemy => enemy.Position.X <= 0))
-            {
-                enemy.Position = new Vector2(new Random().Next(700, 1000), enemy.Position.Y);
-            }
 
             if (gameTime.TotalGameTime.Milliseconds % 1 == 0)
             {
                 IoC.Container.Map.ChangeXPosition(Speed);
             }
-
-            IoC.Container.Map.Regenerate();
+            
 
             _seconds = gameTime.TotalGameTime.TotalSeconds - _lastSeonds;
 

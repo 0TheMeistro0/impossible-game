@@ -56,7 +56,7 @@ namespace ImpossibleGame
             get
             {
                 return new Rectangle((int)Position.X, (int)Position.Y,
-                (int)(Size.X), (int)(Size.Y));
+                (int)(Texture.Width), (int)(Texture.Height));
             }
         }
 

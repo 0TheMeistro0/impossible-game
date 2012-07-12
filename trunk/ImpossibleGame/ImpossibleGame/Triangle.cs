@@ -9,6 +9,9 @@ namespace ImpossibleGame
 {
     public class Triangle : IEnemy
     {
+
+        private delegate int Line(int x, int y);
+
         /// <summary>
         /// Creates the new instance of TriangleEnemy
         /// </summary>
@@ -30,6 +33,39 @@ namespace ImpossibleGame
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+        }
+
+        public override bool Collision(IPlayer player)
+        {
+            //var highestPoint = new Vector2(Position.X + Texture.Width/2, Position.Y + Texture.Width);
+            //var leftPoint = new Vector2(Position.X, Position.Y);
+            //var rightPoint = new Vector2(Position.X + Texture.Width, Position.Y);
+
+            //if (player.Position.Y >= highestPoint.Y && player.Position.Y + Texture.Height >= highestPoint.Y)
+            //{
+            //    return false;
+            //}
+            
+            //Line vLine = (int x, int y) => (int)((leftPoint.Y - highestPoint.Y)*x - (leftPoint.X - highestPoint.X)*y +
+            //                                     (leftPoint.X*highestPoint.Y - highestPoint.X*leftPoint.Y));
+
+            //if (vLine((int)player.Position.X, (int)player.Position.Y) < 0) return false;
+            ////if (vLine((int)player.Position.X + (int)player.Texture.Width, (int)player.Position.Y) < 0) return false;
+            //if (vLine((int)player.Position.X + (int)player.Texture.Width, (int)player.Position.Y + (int)player.Texture.Height) < 0) return false;
+            ////if (vLine((int)player.Position.X, (int)player.Position.Y + (int)player.Texture.Height) < 0) return false;
+
+            //vLine = (int x, int y) => (int)((rightPoint.Y - highestPoint.Y) * x - (rightPoint.X - rightPoint.X) * y +
+            //                                     (rightPoint.X * highestPoint.Y - highestPoint.X * rightPoint.Y));
+
+            ////if (vLine((int)player.Position.X, (int)player.Position.Y) < 0) return false;
+            //if (vLine((int)player.Position.X + (int)player.Texture.Width, (int)player.Position.Y) < 0) return false;
+            ////if (vLine((int)player.Position.X + (int)player.Texture.Width, (int)player.Position.Y + (int)player.Texture.Height) < 0) return false;
+            //if (vLine((int)player.Position.X, (int)player.Position.Y + (int)player.Texture.Height) < 0) return false;
+
+
+            //return true;
+
+            return base.Collision(player);
         }
 
         /// <summary>
