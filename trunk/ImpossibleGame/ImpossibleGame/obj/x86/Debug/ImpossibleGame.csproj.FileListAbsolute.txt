@@ -9,19 +9,19 @@ c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\Impos
 c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Triangle.xnb
 c:\users\дмитро\documents\visual studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Water.xnb
 C:\Users\Дмитро\Documents\Visual Studio 2010\Projects\ImpossibleGame\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Line.xnb
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.exe
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Cube.xnb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Player.xnb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Triangle.xnb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Water.xnb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\Line.xnb
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.exe
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.pdb
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.exe
-C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.pdb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\Content\SpriteFont1.xnb
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.exe.manifest
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.application
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\bin\x86\Debug\ImpossibleGame.pdb
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.exe.manifest
 C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.application
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.exe
+C:\Users\1\Documents\Visual Studio 2010\Projects\Impossible Game\ImpossibleGame\ImpossibleGame\obj\x86\Debug\ImpossibleGame.pdb
